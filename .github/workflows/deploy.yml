@@ -35,8 +35,10 @@ jobs:
           rm -rf .next
           rm -rf node_modules/.cache
       
-      - name: Install dependencies
-        run: npm ci
+      - name: Build Next.js app
+        env:
+          NEXT_PUBLIC_API_URL: https://flask-todo-app-xyh7.onrender.com
+        run: npm run build
       
       - name: Run linting
         run: npm run lint
